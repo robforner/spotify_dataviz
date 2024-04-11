@@ -8,19 +8,26 @@ st.set_page_config(page_title="Artist Popularity Evolution", page_icon="⭐️",
 
 st.markdown('# ⭐️ Artist Popularity Evolution')
 
+dataset['track_album_release_date'] = pd.to_datetime(dataset['track_album_release_date'])
+
+# Extract the year from the release date
+dataset['year'] = dataset['track_album_release_date'].dt.year
+
+# Filter the data for the specified artists
 filtered_data = dataset[dataset['track_artist'].isin(['Ed Sheeran', 'Ariana Grande', 'The Chainsmokers'])]
 
-# Counting the number of unique playlists appearances for each of the specified artists
-playlist_appearances = filtered_data.groupby('track_artist')['playlist_name'].nunique().reset_index(name='unique_playlists')
+# Group by artist and year, then count the number of unique playlists
+playlist_appearances_by_year = filtered_data.groupby(['track_artist', 'year'])['playlist_name'].nunique().reset_index(name='unique_playlists')
 
-# Sorting artists by the number of unique playlist appearances
-playlist_appearances_sorted = playlist_appearances.sort_values(by='unique_playlists', ascending=False)
+# Sorting the data for plotting
+playlist_appearances_by_year_sorted = playlist_appearances_by_year.sort_values(by=['track_artist', 'year'])
 
-# Creating the bar chart
-fig = px.bar(playlist_appearances_sorted, x='track_artist', y='unique_playlists',
-             title='Most Playlist Appearances per Artist',
-             labels={'track_artist': 'Artist', 'unique_playlists': 'Number of Unique Playlists'},
-             height=600)
+# Creating the line chart
+fig = px.line(playlist_appearances_by_year_sorted, x='year', y='unique_playlists', color='track_artist',
+              title='Evolution of Artist Popularity Through Time',
+              labels={'year': 'Year', 'unique_playlists': 'Number of Unique Playlists', 'track_artist': 'Artist'},
+              markers=True, # Adding markers to points for clarity
+              height=600)
 
 # Improving layout
 fig.update_xaxes(tickangle=-45)
