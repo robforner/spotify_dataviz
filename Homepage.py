@@ -1,8 +1,6 @@
 # streamlit run "Homepage.py"
 import pandas as pd
 import streamlit as st
-import subprocess
-import sys
 
 st.set_page_config(page_title="Homepage", page_icon="🏠", layout='wide')
 
@@ -46,10 +44,6 @@ st.markdown(' ')
 st.markdown(' ')
 st.markdown(' ')
 
-def install_package(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-install_package('plotly')
 
 col1, col2, col3 = st.columns([0.2, 0.9, 0.2])
 with col2:
