@@ -1,0 +1,15 @@
+[theme]
+# Primary color. Used for primary buttons and active elements.
+primaryColor="#0E9E36"
+
+# Background color for the main content area.
+backgroundColor="#EAFEE2"
+
+# Background color for sidebar and most interactive widgets.
+secondaryBackgroundColor="#B4EDB0"
+
+# Color used for almost all text.
+textColor="#306030"
+
+# Color used for headings.
+font="sans serif"
