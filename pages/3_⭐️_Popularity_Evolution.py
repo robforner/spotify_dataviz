@@ -2,9 +2,12 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 from Homepage import dataset
+from savestate import load_selections, save_selections
 
 st.set_page_config(page_title="Artist Popularity Evolution", page_icon="⭐️", layout='wide',)
 
+saved_artists = "saved_artists.json"
+selected_artists = load_selections(saved_artists)
 
 st.markdown('# ⭐️ Artist Popularity Evolution')
 
@@ -14,7 +17,7 @@ dataset['track_album_release_date'] = pd.to_datetime(dataset['track_album_releas
 dataset['year'] = dataset['track_album_release_date'].dt.year
 
 # Filter the data for the specified artists
-filtered_data = dataset[dataset['track_artist'].isin(['Ed Sheeran', 'Ariana Grande', 'The Chainsmokers'])]
+filtered_data = dataset[dataset['track_artist'].isin(selected_artists)]
 
 # Group by artist and year, then count the number of unique playlists
 playlist_appearances_by_year = filtered_data.groupby(['track_artist', 'year'])['playlist_name'].nunique().reset_index(name='unique_playlists')
