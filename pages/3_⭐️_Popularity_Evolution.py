@@ -1,7 +1,7 @@
 import pandas as pd
 import plotly.express as px
 import streamlit as st
-import Homepage as dataset
+from Homepage import dataset
 
 st.set_page_config(page_title="Artist Popularity Evolution", page_icon="⭐️", layout='wide',)
 
