@@ -37,7 +37,8 @@ st.sidebar.header('🏠 Homepage')
 with st.sidebar:
     st.markdown("Select one of the pages above to start visualizing the data related to song data on :green[Spotify]!")
 
-st.markdown('<h1 style = "text-align:center">Data Visualization Tool</h1>', unsafe_allow_html=True)
+st.markdown('<h1 style = "text-align:center">Analyzing and Comparing Artists and Their Songs</h1>', unsafe_allow_html=True)
+st.markdown('<h1 style = "text-align:center">Interactive Data Visualization Dashboard</h1>', unsafe_allow_html=True)
 st.markdown('<h1 style = "text-align:center"><a href="https://www.spotify.com">Spotify</a></h1>', unsafe_allow_html=True)
 st.markdown('<h3 style = "text-align:center">DeusVult</h3>', unsafe_allow_html=True)
 st.markdown(' ')
