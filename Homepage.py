@@ -46,7 +46,7 @@ st.markdown(' ')
 st.markdown(' ')
 
 
-col1, col2, col3 = st.columns([0.2, 0.9, 0.2])
+col1, col2, col3 = st.columns([0.5, 0.5, 0.5])
 with col2:
     st.image('spotifylogo.png', width=500)
 
