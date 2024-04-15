@@ -48,7 +48,7 @@ st.markdown(' ')
 
 col1, col2, col3 = st.columns([0.5, 0.5, 0.5])
 with col2:
-    st.image('spotifylogo.png', width=500)
+    st.image('spotifylogo.png', use_column_width='always')
 
 
 
