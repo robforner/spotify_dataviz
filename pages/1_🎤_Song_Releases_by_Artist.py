@@ -61,7 +61,7 @@ st.sidebar.header("🎤 Song Releases by Artist")
 with st.sidebar:
     help = st.toggle('Info', key=7, value=True)
     if help:
-        st.markdown("Visualize the number of guests who visited a specific ride in a single day or in a range of days.")
+        st.markdown("Select the artists to show their release timeline. Select the type of tracks considered.")
     
     selected_artists = st.multiselect("Select one or more artists:", artists, default=load_selections(saved_artists), key='arts')
     if 'selected_artists' not in st.session_state:
