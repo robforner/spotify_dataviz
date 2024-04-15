@@ -73,7 +73,7 @@ st.sidebar.header("🎤 Song Releases by Artist")
 with st.sidebar:
     help = st.toggle('Info', key=7, value=True)
     if help:
-        st.markdown("Visualize the number of guests who visited a specific ride in a single day or in a range of days.")
+        st.markdown("Select the features and the songs from the artists selected in the previous page to visualize and compare them. Up to 5 different features are allowed.")
 
     track_options = ['Original and Remixed Tracks', 'Original Tracks', 'Remixed Tracks']
     track_type = st.radio('Select the kind of track:', track_options, index=track_options.index(load_selections(saved_tracktype)))
