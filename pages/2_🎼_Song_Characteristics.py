@@ -69,7 +69,7 @@ def plot_song_features(df, artist, features, song_choice):
     # st.dataframe(df_toplot)
     st.plotly_chart(fig)
 
-st.sidebar.header("🎤 Song Releases by Artist")
+st.sidebar.header("🎼 Song Characteristics")
 with st.sidebar:
     help = st.toggle('Info', key=7, value=True)
     if help:
